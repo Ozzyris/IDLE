@@ -1,17 +1,103 @@
 /* FONTS */
 @font-face { 
-    font-family: 'Coustard'; 
-    src: url('../fonts/coustard-black.eot'); 
-    src: url('../fonts/coustard-black?#iefix') format('embedded-opentype'), 
-         url('../fonts/coustard-black.woff') format('woff'), 
-         url('../fonts/coustard-black.ttf') format('truetype'), 
-         url('../fonts/coustard-black.svg#coustard-black') format('svg'); 
+    font-family: 'NeutraSans'; 
+    src: url('../fonts/Neutra_Light_Italic/Neutra_Light_Italic.eot'); 
+    src: url('../fonts/Neutra_Light_Italic/Neutra_Light_Italic?#iefix') format('embedded-opentype'), 
+         url('../fonts/Neutra_Light_Italic/Neutra_Light_Italic.woff') format('woff'), 
+         url('../fonts/Neutra_Light_Italic/Neutra_Light_Italic.ttf') format('truetype'), 
+         url('../fonts/Neutra_Light_Italic/Neutra_Light_Italic.svg#Neutra_Light_Italic') format('svg');
+         font-weight: 100;
 }
 
-/* Style General*/
+@font-face { 
+    font-family: 'NeutraSans'; 
+    src: url('../fonts/Neutra_Book/Neutra_Book.eot'); 
+    src: url('../fonts/Neutra_Book/Neutra_Book?#iefix') format('embedded-opentype'), 
+         url('../fonts/Neutra_Book/Neutra_Book.woff') format('woff'), 
+         url('../fonts/Neutra_Book/Neutra_Book.ttf') format('truetype'), 
+         url('../fonts/Neutra_Book/Neutra_Book.svg#Neutra_Book') format('svg');
+         font-weight: 400;
+}
+
+@font-face { 
+    font-family: 'NeutraSans'; 
+    src: url('../fonts/Neutra_Bold/Neutra_Bold.eot'); 
+    src: url('../fonts/Neutra_Bold/Neutra_Bold?#iefix') format('embedded-opentype'), 
+         url('../fonts/Neutra_Bold/Neutra_Bold.woff') format('woff'), 
+         url('../fonts/Neutra_Bold/Neutra_Bold.ttf') format('truetype'), 
+         url('../fonts/Neutra_Bold/Neutra_Bold.svg#Neutra_Bold') format('svg');
+         font-weight: 700;
+}
+
+/* STYLE GENÉRALE */
 body{
-    background-color: #F2F2F2;
-    font-family: 'Coustard';
+    background-color: #FFFFFF;
+    font-family: 'NeutraSans';
+    font-weight: 100;
+}
+
+
+/* PAGE DE CONNEXION */
+
+#Content_Connexion{
+    text-align: center;
+    margin-top: 10%;
+}
+
+    #Content_Connexion form{
+        margin-top: 20px;
+    }
+
+#Pied_Page_Connexion{
+    position: absolute;
+    bottom: 10px;
+    font-size: 14px;
+    left: 50%;
+    margin-left: -100px;
+}
+
+    #Pied_Page_Connexion a{
+        font-weight: 400;
+    }
+
+.input_bootstrap{
+    display: inline-block;
+    width: 200px;
+    height: 24px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: #555;
+    background-color: #FFF;
+    background-image: none;
+    border: 1px solid #CCC;
+    border-radius: 2px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset;
+    transition: border-color 0.15s ease-in-out 0s;
+}
+
+.input_bootstrap:focus, .input_button_bootstrap:hover{
+    border-color: #01579b;
+}
+
+.input_button_bootstrap{
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0px;
+    margin-top: 5px;
+    font-size: 14px;
     font-weight: 400;
-    overflow: hidden;
+    line-height: 1.42857;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -moz-user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #333;
+    background-color: #FFF;
+    border-color: #CCC;
+    transition: border-color 0.15s ease-in-out 0s;
 }
