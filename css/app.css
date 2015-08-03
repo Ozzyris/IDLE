@@ -222,28 +222,33 @@ body{
         z-index:100;
     }
 
-    .tuile .dropdown_tuile li{
+    .tuile:nth-child(6) .dropdown_tuile{
+        left:78px;
+    }
+
+    .dropdown_tuile li{
         color: #ffffff;
         list-style-type: none;
-        padding:5px;
+        padding:10px;
         transition: background-color 500ms;
+        cursor:pointer;
     }
 
         .tuile .dropdown_tuile li:hover{
             background-color: #013d6c;
         }
 
-        .tuile .fa-ellipsis-h:hover{
-            background-color: #01579b;
-            color: #ffffff;
-        }
-
      .dropdown_tuile{
+        display:none;
+    }
+
+    .btn_dropdown_tuile:hover .dropdown_tuile{
         display:block;
     }
 
-    .fa-ellipsis-h:hover .dropdown_tuile{
-        display:block;
+    .btn_dropdown_tuile:hover .fa-ellipsis-h{
+            background-color: #01579b;
+            color: #ffffff;
     }
 
 
