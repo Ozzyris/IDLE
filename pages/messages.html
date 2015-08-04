@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="img/favicon.jpg">
+        <title>IDLE - Manage your job's search</title>
+    
+        <!-- Referencement -->
+        <meta name="Author" content="Alexandre Nicol">
+        <meta name="Description" content="BETA#1">
+
+        <!-- CSS -->
+        <link href="../css/app.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link href='http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.css' rel='stylesheet' />
+
+        <!-- Script -->
+        <script src='http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.js'></script>
+
+    </head>
+    <body>
+
+    <div id="menu">
+        <img src="../img/logo.svg">
+        <div class="menu_droite">
+            <p>Hi, Harrison <i class="fa fa-sort-desc"></i></p>
+            <ul id="dropdown_menu">
+                <li>Profil</li>
+                <li>Deconnextion</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="content_messages">
+        
+    </div>
+
+    <div id="content_message_right">
+        <div id="company_information">
+            <i class="fa fa-cog"></i>
+            <img src="../img/Square_Frog_Design.svg" alt="FrogDesign Logo">
+            <h1>Frog Design</h1>
+            <p>Frog is a global product strategy and design firm. We identify business opportunities and design meaningful products, services, and experiences that grow brands and delight customers.</p>
+            
+            <p>Vous avez pris en Chasse cette entreprise il y à <span class="company_information_bold">47 jours</span></p>
+        </div>
+        <div id="company_map">
+            <div id="map_box">
+                
+            </div>
+        </div>
+        <div id="company_timeline">
+
+            <div id="company_jour">
+                <p id="big_number">2</p>
+                <p id="less_big_number">jour avant<br /><span id="small_number">D'envoyer un nouveau mail</span></p>
+            </div>
+            <ul id="company_calendrier">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+                <li>10</li>
+                <li>11</li>
+                <li class="active">12<span></span></li>
+                <li>13</li>
+                <li>14</li>
+                <li>15</li>
+                <li>16</li>
+                <li>17</li>
+                <li>18</li>
+                <li>19</li>
+                <li>20</li>
+                <li>21</li>
+                <li>22</li>
+                <li>23</li>
+                <li class="active">24<span></span></li>
+                <li>25</li>
+                <li>26</li>
+                <li>27</li>
+                <li>28</li>
+                <li>29</li>
+                <li>30</li>
+                <li>31</li>
+            </ul>
+        </div>
+    </div>
+
+
+        <!-- Script -->
+    <script src="js/jQuery.js"></script>
+    <script src="js/app.js"></script>
+
+     <script type='text/javascript'>
+              var map = L.mapbox.map('map_box', 'ozzyris.n2ogiic6')
+              .setView([47.698517, -37.549848], 1);
+
+
+              L.mapbox.markerLayer({
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [2.333096, 48.865072]},
+                properties: {
+                  'marker-size': 'small',
+                  'marker-color': '#01579b'}
+              }).addTo(map);
+    </script>
+   </body>
+</html>
