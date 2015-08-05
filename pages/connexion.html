@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="img/favicon.jpg">
+        <title>IDLE - Manage your job's search</title>
+    
+        <!-- Referencement -->
+        <meta name="Author" content="Alexandre Nicol">
+        <meta name="Description" content="BETA#1">
+
+        <!-- CSS -->
+        <link href="css/app.css" rel="stylesheet">
+    </head>
+    <body>
+   
+    <div id="Content_Connexion">
+        <img src="img/logo.svg" width="200" height="200" alt="IDLE Logo">
+
+        <form onsubmit="return good_password();" name="formulaire_connexion">
+            <input class="input_bootstrap" type="text" placeholder="Identifiant" />
+            <input class="input_bootstrap" type="password" name="password" placeholder="Mot de passe" /><br />
+            <input class="input_button_bootstrap" type="submit" value="Connexion">
+        </form>
+
+        <p id="Pied_Page_Connexion">Perdu vos identifiants ? <a href="#" onClick="alert('Le mot de passe c\'est Kangourou');" >Cliquez ici</a></p>
+    </div>        
+
+
+   <!-- Script -->
+   <script src="js/jQuery.js"></script>
+   <script src="js/app.js"></script>
+   <script>
+    function good_password(){
+        frm=document.forms['formulaire_connexion'];
+
+        if(frm.elements['password'].value == "Kangourou"){
+            window.location.href='pages/dashboard.html';
+        }
+
+    }
+   </script>
+
+   </body>
+</html>
