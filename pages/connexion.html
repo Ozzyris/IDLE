@@ -1,46 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" href="img/favicon.jpg">
-        <title>IDLE - Manage your job's search</title>
-    
-        <!-- Referencement -->
-        <meta name="Author" content="Alexandre Nicol">
-        <meta name="Description" content="BETA#1">
-
-        <!-- CSS -->
-        <link href="css/app.css" rel="stylesheet">
-    </head>
     <body>
    
     <div id="Content_Connexion">
         <img src="img/logo.svg" width="200" height="200" alt="IDLE Logo">
 
-        <form onsubmit="return good_password();" name="formulaire_connexion">
-            <input class="input_bootstrap" type="text" placeholder="Identifiant" />
-            <input class="input_bootstrap" type="password" name="password" placeholder="Mot de passe" /><br />
-            <input class="input_button_bootstrap" type="submit" value="Connexion">
-        </form>
+        <div id="like_a_form" >
+            <input class="input_bootstrap input_bootstrap_email" type="text" placeholder="Identifiant" />
+            <input class="input_bootstrap input_bootstrap_password" type="password" placeholder="Mot de passe" /><br />
+            <button class="input_button_bootstrap" onclick="good_password();">Connexion</button>
+        </div>
 
-        <p id="Pied_Page_Connexion">Perdu vos identifiants ? <a href="#" onClick="alert('Le mot de passe c\'est Kangourou');" >Cliquez ici</a></p>
-    </div>        
+        <p id="Pied_Page_Connexion">Perdu vos identifiants ? <a href="#lost_password_modal" data-toggle="modal" >Cliquez ici</a></p>
+    </div>
 
-
-   <!-- Script -->
-   <script src="js/jQuery.js"></script>
-   <script src="js/app.js"></script>
-   <script>
-    function good_password(){
-        frm=document.forms['formulaire_connexion'];
-
-        if(frm.elements['password'].value == "Kangourou"){
-            window.location.href='pages/dashboard.html';
-        }
-
-    }
-   </script>
+    <!-- Modal -->
+    <div id="lost_password_modal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Alors Comme ça On à perdu son mot de passe ?</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Donne ton email à Papa, il va se charger de tout.</p>
+                    <input class="input_bootstrap input_bootstrap_email_lost" type="text" placeholder="Identifiant" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="input_button_bootstrap" data-dismiss="modal">Close</button>
+                    <button type="button" onclick="lost_password()" class="input_button_bootstrap">Send Email</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
    </body>
 </html>
