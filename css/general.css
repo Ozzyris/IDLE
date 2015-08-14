@@ -1,0 +1,147 @@
+/* FONTS */
+@font-face { 
+    font-family: 'NeutraSans'; 
+    src: url('../fonts/Neutra_Light_Italic/Neutra_Light_Italic.eot'); 
+    src: url('../fonts/Neutra_Light_Italic/Neutra_Light_Italic?#iefix') format('embedded-opentype'), 
+         url('../fonts/Neutra_Light_Italic/Neutra_Light_Italic.woff') format('woff'), 
+         url('../fonts/Neutra_Light_Italic/Neutra_Light_Italic.ttf') format('truetype'), 
+         url('../fonts/Neutra_Light_Italic/Neutra_Light_Italic.svg#Neutra_Light_Italic') format('svg');
+         font-weight: 100;
+}
+@font-face { 
+    font-family: 'NeutraSans'; 
+    src: url('../fonts/Neutra_Book/Neutra_Book.eot'); 
+    src: url('../fonts/Neutra_Book/Neutra_Book?#iefix') format('embedded-opentype'), 
+         url('../fonts/Neutra_Book/Neutra_Book.woff') format('woff'), 
+         url('../fonts/Neutra_Book/Neutra_Book.ttf') format('truetype'), 
+         url('../fonts/Neutra_Book/Neutra_Book.svg#Neutra_Book') format('svg');
+         font-weight: 400;
+}
+@font-face { 
+    font-family: 'NeutraSans'; 
+    src: url('../fonts/Neutra_Bold/Neutra_Bold.eot'); 
+    src: url('../fonts/Neutra_Bold/Neutra_Bold?#iefix') format('embedded-opentype'), 
+         url('../fonts/Neutra_Bold/Neutra_Bold.woff') format('woff'), 
+         url('../fonts/Neutra_Bold/Neutra_Bold.ttf') format('truetype'), 
+         url('../fonts/Neutra_Bold/Neutra_Bold.svg#Neutra_Bold') format('svg');
+         font-weight: 700;
+}
+
+
+/* STYLE GENÉRALE */
+
+body{
+    background-color: #FFFFFF;
+    font-family: "NeutraSans";
+    font-weight: 100;
+    margin:0;
+    padding:0;
+}
+
+
+/* MENU */
+#menu{
+    position: absolute;
+    top:0; left: 0;
+    height: 50px;
+    width:100%;
+    box-shadow: 0px .1px 4px #303030;
+    z-index:100;
+}
+
+    #menu img{
+        width: 40px;
+        height: 40px;
+        margin: 5px 0 0 50px;
+    }
+
+    #menu .menu_droite{
+        float:right;
+        margin-right: 50px;
+        width:150px;
+    }
+
+        #menu .menu_droite p{
+            cursor: pointer;
+            color: #01579b;
+            font-family: 'NeutraSans';
+            font-weight: 400;
+        }
+
+        .menu_droite #dropdown_menu{
+            background-color: #01579b;
+            margin: -2px 0 0 0;
+            padding:0;
+        }
+            .menu_droite #dropdown_menu li{
+                color: #ffffff;
+                list-style-type: none;
+                padding: 10px;
+                cursor: pointer;
+                transition: background-color 500ms;
+            }
+
+            .menu_droite #dropdown_menu li:hover{
+                background-color: #013d6c;
+            }
+
+
+    #dropdown_menu{
+        display:none;
+    }
+
+    .menu_droite:hover #dropdown_menu{
+        display:block;
+    }
+
+    #tab_container{
+        padding:0 0 0 0px; margin: -1px 0 0 0px ;
+        width:100%;
+        border-top: 3px solid #01579b;
+    }
+
+        #tab_container li{
+            font-family: 'NeutraSans';
+            font-weight: 100;
+            position: relative;
+            list-style-type: none;
+            float: left;
+            padding: 0px 20px 0px 30px;
+            margin: -3px -14px 0px -7px;
+            height: 20px;
+            width: 120px;
+            background: #fff;
+            color: #01579b;
+            border: 2px solid #01579b;
+            border-bottom-right-radius: 100px;
+            border-bottom-left-radius: 100px;
+            z-index: 10;
+            max-width: 120px;
+            min-width: 60px;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+        }
+
+        #tab_container li:nth-child(1){
+            margin-left:0;
+            border-bottom-left-radius: 0px;
+
+        }
+
+        #tab_container li:nth-child(1).active{
+            z-index:20;
+            background-color: #01579b;
+            color: #ffffff;
+        }
+
+        #tab_container li.active{
+            z-index:20;
+            background-color: #01579b;
+            color: #ffffff;
+        }
+
+        #tab_container li .fa-times{
+            padding: 3px 0 0 28px;
+            cursor: pointer;
+            font-size: 12px;
+        }

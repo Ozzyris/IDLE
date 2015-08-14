@@ -1,0 +1,30 @@
+/* PAGE D'INSCRIPTION */
+#content_inscription{
+    text-align: center;
+    margin-top: 5%;
+}
+
+    #like_an_inscription_form{
+        margin-top: 20px auto;
+        width: 300px;
+        position: absolute;
+        left: calc(50% - 150px);
+        border: 1px solid #303030;
+    }
+
+    #content_inscription input{
+        padding:6px 12px;
+        margin: 5px;
+    }
+
+    #pied_page_inscrition{
+        position: absolute;
+        bottom: 10px;
+        font-size: 14px;
+        left: 50%;
+        margin-left: -100px;
+    }
+
+    #pied_page_inscrition a{
+        font-weight: 400;
+    }
