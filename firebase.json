@@ -1,9 +1,0 @@
-{
-  "firebase": "idledata",
-  "public": ".",
-  "ignore": [
-    "firebase.json",
-    "**/.*",
-    "**/node_modules/**"
-  ]
-}
