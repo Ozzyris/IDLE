@@ -141,7 +141,9 @@ body{
         }
 
         #tab_container li .fa-times{
-            padding: 3px 0 0 28px;
             cursor: pointer;
             font-size: 12px;
+            position: absolute;
+            top: 5px;
+            right: 20px;
         }
