@@ -90,3 +90,36 @@
             background-color: #01579b;
             color: #ffffff;
     }
+
+    #tuile_add{
+        display: block;
+        position: relative;
+        width:250px;
+        height: 187.5px;
+        float: left;
+        margin-left: 40px;
+        margin-bottom: 40px;
+        border: 1px dashed #01579b;
+        cursor: pointer;
+    }
+
+        #tuile_add span{
+            display: block;
+            width:75px;
+            height:75px;
+            border: 1px solid #01579b;
+            border-radius: 50%;
+            position:absolute;
+            left: calc(50% - 37.5px);
+            top: calc(50% - 37.5px);
+            color: #01579b;
+            font-size: 100px;
+        }
+
+            #tuile_add span p{
+                position: absolute;
+                margin:0;
+                padding:0;
+                top:-32px;
+                left:12px;
+            }

@@ -7,8 +7,8 @@
                 <i class="fa fa-ellipsis-h"></i>
                 <ul class="dropdown_tuile">
                     <li>Modifier la compagnie</li>
-                    <li>Partager</li>
-                    <li>Archiver</li>
+                    <li href="#partager_modal" data-toggle="modal" >Partager</li>
+                    <li href="#archiver_modal" data-toggle="modal" >Archiver</li>
                 </ul>
             </div>
         </div>
@@ -22,8 +22,8 @@
                 <i class="fa fa-ellipsis-h"></i>
                 <ul class="dropdown_tuile">
                     <li>Modifier la compagnie</li>
-                    <li>Partager</li>
-                    <li>Archiver</li>
+                    <li href="#partager_modal" data-toggle="modal" >Partager</li>
+                    <li href="#archiver_modal" data-toggle="modal" >Archiver</li>
                 </ul>
             </div>
         </div>
@@ -36,8 +36,8 @@
                 <i class="fa fa-ellipsis-h"></i>
                 <ul class="dropdown_tuile">
                     <li>Modifier la compagnie</li>
-                    <li>Partager</li>
-                    <li>Archiver</li>
+                    <li href="#partager_modal" data-toggle="modal" >Partager</li>
+                    <li href="#archiver_modal" data-toggle="modal" >Archiver</li>
                 </ul>
             </div>
         </div>
@@ -51,8 +51,8 @@
                 <i class="fa fa-ellipsis-h"></i>
                 <ul class="dropdown_tuile">
                     <li>Modifier la compagnie</li>
-                    <li>Partager</li>
-                    <li>Archiver</li>
+                    <li href="#partager_modal" data-toggle="modal" >Partager</li>
+                    <li href="#archiver_modal" data-toggle="modal" >Archiver</li>
                 </ul>
             </div>
         </div>
@@ -65,8 +65,8 @@
                 <i class="fa fa-ellipsis-h"></i>
                 <ul class="dropdown_tuile">
                     <li>Modifier la compagnie</li>
-                    <li>Partager</li>
-                    <li>Archiver</li>
+                    <li href="#partager_modal" data-toggle="modal" >Partager</li>
+                    <li href="#archiver_modal" data-toggle="modal" >Archiver</li>
                 </ul>
             </div>
         </div>
@@ -80,8 +80,8 @@
                 <i class="fa fa-ellipsis-h"></i>
                 <ul class="dropdown_tuile">
                     <li>Modifier la compagnie</li>
-                    <li>Partager</li>
-                    <li>Archiver</li>
+                    <li href="#partager_modal" data-toggle="modal" >Partager</li>
+                    <li href="#archiver_modal" data-toggle="modal" >Archiver</li>
                 </ul>
             </div>
         </div>
@@ -94,8 +94,8 @@
                 <i class="fa fa-ellipsis-h"></i>
                 <ul class="dropdown_tuile">
                     <li>Modifier la compagnie</li>
-                    <li>Partager</li>
-                    <li>Archiver</li>
+                    <li href="#partager_modal" data-toggle="modal" >Partager</li>
+                    <li href="#archiver_modal" data-toggle="modal" >Archiver</li>
                 </ul>
             </div>
         </div>
@@ -109,8 +109,50 @@
                 <i class="fa fa-ellipsis-h"></i>
                 <ul class="dropdown_tuile">
                     <li>Modifier la compagnie</li>
-                    <li>Partager</li>
-                    <li>Archiver</li>
+                    <li href="#partager_modal" data-toggle="modal" >Partager</li>
+                    <li href="#archiver_modal" data-toggle="modal" >Archiver</li>
                 </ul>
             </div>
         </div>
+        <li id="tuile_add" href="pages/addtarget.html" data-ajax="ajax_link">
+            <span><p>+</p></span>
+        </li>
+
+
+
+
+
+<!-- Modal Partager -->
+    <div id="partager_modal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" style="background-color: #5CB85C;" >Partager cette Compagnie</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Inscrit l'adresse des personnes avec qui tu veux partager les informations recueillies sur cette entreprise.</p>
+                    <input class="input_bootstrap input_bootstrap_email_lost" type="email" placeholder="Mail" />
+                </div>
+                <div class="modal-footer">
+                    <button style="background-color:#337AB7; border-color:#2E6DA4; color:#ffffff;" type="button" class="input_button_bootstrap">Send Email</button>
+                    <button type="button" class="input_button_bootstrap" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<!-- Modal Archiver -->
+    <div id="archiver_modal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" style="background-color: #D9534F;">Êtes-vous sur de vouloir archiver ce projet ?</h4>
+                </div>
+                <div class="modal-footer">
+                    <button style="background-color:#D9534F; border-color:#D43F3A; color:#ffffff;" type="button" class="input_button_bootstrap">Archiver</button>
+                    <button type="button" class="input_button_bootstrap" data-dismiss="modal">Annuler</button>
+                </div>
+            </div>
+        </div>
+    </div>

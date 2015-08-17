@@ -47,7 +47,10 @@ function good_password(){
       if (error) {
         alert("Login Failed!", error);
       } else {
+        /* jshint ignore:start */
         remember: 'sessionOnly';
+        /* jshint ignore:end */
+
         user_id = authData.uid;
         load_page_content(user_id);
         
