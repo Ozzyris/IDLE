@@ -30,8 +30,6 @@ function Hub_page(url){
 			return;
 		}else if(url == 'pages/messages.html'){
 			Load_page(url);
-			var name = 'Frog Design';
-			display_message_page(Companies_array, name);
 		}
 	
 		Load_page(url);
@@ -61,6 +59,7 @@ function Load_page(url){
 
 // CHARGEMENT DES ONGLETS
 function Load_onglet(url, name){
+
 	$( document ).ready(function() {
 		if(url === 'pages/connexion.html'){
 			$('#dashboard_tab_index').remove('#dashboard_tab_index');
@@ -76,13 +75,14 @@ function Load_onglet(url, name){
 		}else if(url === 'pages/messages.html' || url === 'pages/addtarget.html'){
 			var namenospace = escapeRegExp(name);
 			if(onglets.Appartient(name)){
+							console.log('coucou');
+
 				$("#tab_container").find('li').removeClass('active');
+
 				if(url === 'pages/addtarget.html'){
-					$('#tab_container').find('li').removeClass('active');
 					$('#target_onglet').addClass('active');
 				}else if(url === 'pages/messages.html'){
-					$('#tab_container').find('li').removeClass('active');
-					$('#message_onglet_FrogDesign').addClass('active');
+					$('#message_onglet_' + namenospace).addClass('active');
 				}
 
 			}else{
@@ -90,7 +90,7 @@ function Load_onglet(url, name){
 				if(url === 'pages/addtarget.html'){
 					$("#tab_container").append('<li id="target_onglet" class="message_tab_index active" onclick="Hub_page(\'pages/addtarget.html\'); Load_onglet(\'pages/addtarget.html\', \'Add a offre\');" >' + name + '<i class="fa fa-times"></i></li>');
 				}else if(url === 'pages/messages.html'){
-					$("#tab_container").append('<li id="message_onglet_' + namenospace + '" class="message_tab_index active" onclick="Hub_page(\'pages/messages.html\'); Load_onglet(\'pages/messages.html\', \'' + name + '\');" >' + name + '<i class="fa fa-times"></i></li>');
+					$("#tab_container").append('<li id="message_onglet_' + namenospace + '" class="message_tab_index active" onclick="Hub_page(\'pages/messages.html\'); display_message_page(\'Companies_array\', \'2\'); Load_onglet(\'pages/messages.html\', \'' + name + '\');" >' + name + '<i class="fa fa-times"></i></li>');
 				}
 				onglets.push(name);
 				del_tab();
@@ -173,13 +173,12 @@ function lost_password(){
 //CHARGEMENT DU CONTENU DU DASHBOARD 
 function Load_page_content(id){
 	if(Companies_array == '' && User_array == ''){
-
+		var i =0;
 		target_private.orderByChild("id_author").startAt(id).endAt(id).on("child_added", function(snapshot) {
 			var entree = [snapshot.val().id_author, snapshot.val().nb_mail, snapshot.val().nd_answer, snapshot.val().status, snapshot.val().target_add_date, snapshot.val().target_adresse, snapshot.val().target_description, snapshot.val().target_email, snapshot.val().target_name, snapshot.val().target_phone, snapshot.val().target_website, snapshot.val().timastamp_last_answer, snapshot.val().timestamp_last_mail]
   			Companies_array.push(entree);
-  			display_dashboard_page(Companies_array);
-  			console.log(Companies_array);
-		});
+  			display_dashboard_page_afterloading(entree);
+  		});
 
 		account.orderByChild("id").startAt(id).endAt(id).once("child_added", function(snapshot) {
   			User_array.push(snapshot.val().id, snapshot.val().name, snapshot.val().email, snapshot.val().actif, snapshot.val().date_inscription);
@@ -209,17 +208,22 @@ function Load_page_content(id){
 
 function display_dashboard_page(companies) {
 	for (var i = 0; i < companies.length; i++) {
-		$('#hiddenbeforetruk').after('<div class="tuile"><a id="frogdesign" onclick="Hub_page(\'pages/messages.html\'); Load_onglet(\'pages/messages.html\', \'' + companies[i][8] + '\');" ><img src="img/Frog_Design.svg"></a><i class="fa fa-comments-o"></i><h2>' + companies[i][8] + '</h2><h3>Design Agency</h3><div class="btn_dropdown_tuile" ><i class="fa fa-ellipsis-h"></i><ul class="dropdown_tuile"><li>Modifier la compagnie</li><li href="#partager_modal" data-toggle="modal" >Partager</li><li href="#archiver_modal" data-toggle="modal" >Archiver</li></ul></div></div>');
+		$('#hiddenbeforetruk').after('<div class="tuile"><a id="frogdesign" onclick="Hub_page(\'pages/messages.html\'); display_message_page(\'Companies_array\', \'0\'); Load_onglet(\'pages/messages.html\', \'' + companies[i][8] + '\');" ><img src="img/Frog_Design.svg"></a><i class="fa fa-comments-o"></i><h2>' + companies[i][8] + '</h2><h3>Design Agency</h3><div class="btn_dropdown_tuile" ><i class="fa fa-ellipsis-h"></i><ul class="dropdown_tuile"><li>Modifier la compagnie</li><li href="#partager_modal" data-toggle="modal" >Partager</li><li href="#archiver_modal" data-toggle="modal" >Archiver</li></ul></div></div>');
 	}
 }
 
-function display_message_page(companies, name){
-	console.log(companies);
+function display_dashboard_page_afterloading(entree) {
+	$('#hiddenbeforetruk').after('<div class="tuile"><a id="frogdesign" onclick="Hub_page(\'pages/messages.html\'); Load_onglet(\'pages/messages.html\', \'' + entree[8] + '\');" ><img src="img/Frog_Design.svg"></a><i class="fa fa-comments-o"></i><h2>' + entree[8] + '</h2><h3>Design Agency</h3><div class="btn_dropdown_tuile" ><i class="fa fa-ellipsis-h"></i><ul class="dropdown_tuile"><li>Modifier la compagnie</li><li href="#partager_modal" data-toggle="modal" >Partager</li><li href="#archiver_modal" data-toggle="modal" >Archiver</li></ul></div></div>');
+}
+
+function display_message_page(companies, idname){
 	$(document).ready(function(){
+		console.log(Companies_array[idname][4]);
+
 		setTimeout(function(){
-			$('#title_message').text(name);
-			$('#descr_message').html(companies[0][6]);
-			$('#date_message').html(calculedesjours(companies[0][4]) + ' Jours');
+			$('#title_message').text(Companies_array[idname][8]);
+			$('#descr_message').text(Companies_array[idname][6]);
+			$('#date_message').text(calculedesjours(Companies_array[idname][4]) + ' Jours');
 		 }, 100);
 	});
 }
