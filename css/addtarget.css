@@ -1,0 +1,22 @@
+/* PAGE D'AJOUT D'UNE CIBLE */
+/* PAGE D'INSCRIPTION */
+#content_informationsgeneral{
+    text-align: center;
+    margin-top: 1%;
+    margin-top: 20px auto;
+    width: 300px;
+    position: absolute;
+    left: calc(50% - 150px);
+    border: 1px solid #303030;
+}
+
+    #content_informationsgeneral input{
+        padding:6px 12px;
+        margin: 5px;
+    }
+
+    #content_informationsgeneral textarea{
+        resize: none;
+        height:100px;
+        margin: 3px 0px;
+    }
