@@ -5,7 +5,9 @@ var target_private = new Firebase("https://idledata.firebaseio.com/target_privat
 var userId;
 var Companies_array = [],
 	User_array = [],
-	onglets = [];
+	onglets = [],
+	nb_thumb = 0,
+	close_tab_fixe = true;
 
 
 /* 
@@ -17,22 +19,27 @@ GESTION DES VIEW
 //ROUTEUR DES VIEWS
 function Hub_page(url){
 	$( document ).ready(function() {
-		window.location.hash = url;
 
+		window.location.hash = url;
 		if(url === 'pages/connexion.html'){
 			$('.menu_droite').hide();
 			Load_onglet(url, 'Connexion');
+			Load_page(url);
 		}else if(url === 'pages/dashboard.html'){
+
 			$('.menu_droite').show();
 			Load_onglet(url, 'Dashboard');
+			Load_page(url);
 		}else if(url == 'pages/addtarget.html'){
 			Load_page(url);
 			return;
-		}else if(url == 'pages/messages.html'){
+		}else  if(url == 'pages/messages.html'){
+			if(close_tab_fixe == false){return;}
+
 			Load_page(url);
 		}
 	
-		Load_page(url);
+		
 	});
 }
 
@@ -58,7 +65,7 @@ function Load_page(url){
 
 
 // CHARGEMENT DES ONGLETS
-function Load_onglet(url, name){
+function Load_onglet(url, name, id){
 
 	$( document ).ready(function() {
 		if(url === 'pages/connexion.html'){
@@ -75,7 +82,6 @@ function Load_onglet(url, name){
 		}else if(url === 'pages/messages.html' || url === 'pages/addtarget.html'){
 			var namenospace = escapeRegExp(name);
 			if(onglets.Appartient(name)){
-							console.log('coucou');
 
 				$("#tab_container").find('li').removeClass('active');
 
@@ -88,9 +94,9 @@ function Load_onglet(url, name){
 			}else{
 				$("#tab_container").find('li').removeClass('active');
 				if(url === 'pages/addtarget.html'){
-					$("#tab_container").append('<li id="target_onglet" class="message_tab_index active" onclick="Hub_page(\'pages/addtarget.html\'); Load_onglet(\'pages/addtarget.html\', \'Add a offre\');" >' + name + '<i class="fa fa-times"></i></li>');
+					$("#tab_container").append('<li id="target_onglet" class="message_tab_index active" onclick="Hub_page(\'pages/addtarget.html\'); Load_onglet(\'pages/addtarget.html\', \'Add a offre\');" >' + name + '<!--<i class="fa fa-times">--></i></li>');
 				}else if(url === 'pages/messages.html'){
-					$("#tab_container").append('<li id="message_onglet_' + namenospace + '" class="message_tab_index active" onclick="Hub_page(\'pages/messages.html\'); display_message_page(\'Companies_array\', \'2\'); Load_onglet(\'pages/messages.html\', \'' + name + '\');" >' + name + '<i class="fa fa-times"></i></li>');
+					$("#tab_container").append('<li id="message_onglet_' + namenospace + '" class="message_tab_index active" onclick="Hub_page(\'pages/messages.html\'); display_message_page(\'Companies_array\', \'' + id + '\'); Load_onglet(\'pages/messages.html\', \'' + name + '\');" >' + name + '<!--<i class="fa fa-times"></i>--></li>');
 				}
 				onglets.push(name);
 				del_tab();
@@ -103,16 +109,18 @@ function Load_onglet(url, name){
 // SUPPRESSION DES ONGLETS
 function del_tab(){
 	$( document ).ready(function() {
-
+		/*
 		$('.fa-times').click(function() {
+			close_tab_fixe = false;
 			$(this).parent().remove();
 			onglets.splice(onglets.indexOf($(this).parent().data("name")),1);
 			if(onglets.length === 0 ){
 				Hub_page('pages/dashboard.html');
 				Load_page_content(userId);
 			}
+			 setTimeout(function(){ close_tab_fixe = true; }, 500);
 		});
-
+		*/
 	});
 }
 
@@ -173,7 +181,6 @@ function lost_password(){
 //CHARGEMENT DU CONTENU DU DASHBOARD 
 function Load_page_content(id){
 	if(Companies_array == '' && User_array == ''){
-		var i =0;
 		target_private.orderByChild("id_author").startAt(id).endAt(id).on("child_added", function(snapshot) {
 			var entree = [snapshot.val().id_author, snapshot.val().nb_mail, snapshot.val().nd_answer, snapshot.val().status, snapshot.val().target_add_date, snapshot.val().target_adresse, snapshot.val().target_description, snapshot.val().target_email, snapshot.val().target_name, snapshot.val().target_phone, snapshot.val().target_website, snapshot.val().timastamp_last_answer, snapshot.val().timestamp_last_mail]
   			Companies_array.push(entree);
@@ -208,22 +215,23 @@ function Load_page_content(id){
 
 function display_dashboard_page(companies) {
 	for (var i = 0; i < companies.length; i++) {
-		$('#hiddenbeforetruk').after('<div class="tuile"><a id="frogdesign" onclick="Hub_page(\'pages/messages.html\'); display_message_page(\'Companies_array\', \'0\'); Load_onglet(\'pages/messages.html\', \'' + companies[i][8] + '\');" ><img src="img/Frog_Design.svg"></a><i class="fa fa-comments-o"></i><h2>' + companies[i][8] + '</h2><h3>Design Agency</h3><div class="btn_dropdown_tuile" ><i class="fa fa-ellipsis-h"></i><ul class="dropdown_tuile"><li>Modifier la compagnie</li><li href="#partager_modal" data-toggle="modal" >Partager</li><li href="#archiver_modal" data-toggle="modal" >Archiver</li></ul></div></div>');
+		$('#hiddenbeforetruk').after('<div class="tuile"><a id="frogdesign" onclick="Hub_page(\'pages/messages.html\'); display_message_page(\'Companies_array\', \'' + i + '\'); Load_onglet(\'pages/messages.html\', \'' + companies[i][8] + '\', \'' + i + '\');" ><img src="img/' + escapeRegExp(companies[i][8]) + '.svg"></a><i class="fa fa-comments-o"></i><h2>' + companies[i][8] + '</h2><h3>Design Agency</h3><div class="btn_dropdown_tuile" ><i class="fa fa-ellipsis-h"></i><ul class="dropdown_tuile"><li>Modifier la compagnie</li><li href="#partager_modal" data-toggle="modal" >Partager</li><li href="#archiver_modal" data-toggle="modal" >Archiver</li></ul></div></div>');
 	}
 }
 
 function display_dashboard_page_afterloading(entree) {
-	$('#hiddenbeforetruk').after('<div class="tuile"><a id="frogdesign" onclick="Hub_page(\'pages/messages.html\'); Load_onglet(\'pages/messages.html\', \'' + entree[8] + '\');" ><img src="img/Frog_Design.svg"></a><i class="fa fa-comments-o"></i><h2>' + entree[8] + '</h2><h3>Design Agency</h3><div class="btn_dropdown_tuile" ><i class="fa fa-ellipsis-h"></i><ul class="dropdown_tuile"><li>Modifier la compagnie</li><li href="#partager_modal" data-toggle="modal" >Partager</li><li href="#archiver_modal" data-toggle="modal" >Archiver</li></ul></div></div>');
+	$('#hiddenbeforetruk').after('<div class="tuile"><a id="frogdesign" onclick="Hub_page(\'pages/messages.html\'); display_message_page(\'Companies_array\', \'' + nb_thumb + '\'); Load_onglet(\'pages/messages.html\', \'' + entree[8] + '\', \'' + nb_thumb + '\');" ><img src="img/' + escapeRegExp(entree[8]) + '.svg"></a><i class="fa fa-comments-o"></i><h2>' + entree[8] + '</h2><h3>Design Agency</h3><div class="btn_dropdown_tuile" ><i class="fa fa-ellipsis-h"></i><ul class="dropdown_tuile"><li>Modifier la compagnie</li><li href="#partager_modal" data-toggle="modal" >Partager</li><li href="#archiver_modal" data-toggle="modal" >Archiver</li></ul></div></div>');
+	nb_thumb ++;
 }
 
 function display_message_page(companies, idname){
 	$(document).ready(function(){
-		console.log(Companies_array[idname][4]);
 
 		setTimeout(function(){
 			$('#title_message').text(Companies_array[idname][8]);
 			$('#descr_message').text(Companies_array[idname][6]);
 			$('#date_message').text(calculedesjours(Companies_array[idname][4]) + ' Jours');
+			$('#img_message').attr("src", "img/Square_" + escapeRegExp(Companies_array[idname][8]) + ".svg");
 		 }, 100);
 	});
 }
