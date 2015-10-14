@@ -1,0 +1,32 @@
+    <div class="content">
+
+        <div id="profil_content">
+
+            <div id="block_right" style="float:left;">
+                <div class="bloc_form">
+                    <h1>Information du Profil</h1>
+                    <div class="bloc_input">
+                        <input class="input_bootstrap input_bootstrap_name" type="text" placeholder="Votre petit nom" />
+                        <input class="input_bootstrap input_bootstrap_email" type="email" placeholder="Adresse e-mail" />
+        
+                        <button class="input_button_profil actif" onclick="Change_dataPerso();">Modifier</button>
+                        <button class="input_button_profil" onclick="Annuler_dataPerso();">Annuler</button>
+                    </div>
+                </div>
+                <button class="input_button_profil warning" onclick="del_user();" style="float:left;" onclick="">Deleting User</button>
+            </div> 
+
+            <div class="bloc_form"  style="float:left;">
+                <h1>Modification du Mot de passe</h1>
+                <div class="bloc_input">
+                    <input class="input_bootstrap input_bootstrap_oldpassword" type="password" placeholder="Ancien Mot de Passe" /> <br /><br />
+                    <input class="input_bootstrap input_bootstrap_password" type="password" placeholder="Nouveau Mot de Passe" />
+                    <input class="input_bootstrap input_bootstrap_passwordbis" type="password" placeholder="Confirmation du mot de  Passe" />
+               
+                    <button class="input_button_profil actif" onclick="Change_dataMDP();">Modifier</button>
+                    <button class="input_button_profil" onclick="Annuler_dataMDP();">Annuler</button>
+                </div>
+            </div>
+
+        </div>
+    </div>

@@ -17,6 +17,7 @@
         <link href="css/addtarget.css" rel="stylesheet">
         <link href="css/connexion.css" rel="stylesheet">
         <link href="css/dashboard.css" rel="stylesheet">
+        <link href="css/profil.css" rel="stylesheet">
         <link href="css/messages.css" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <link href='http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.css' rel='stylesheet' />
@@ -32,13 +33,13 @@
         <div class="menu_droite">
             <p>Hi, <span id="name_menu" >Anonymous</span> <i class="fa fa-sort-desc"></i></p>
             <ul id="dropdown_menu">
-                <li>Profil</li>
+                <li onclick="Hub_page('pages/profil.html');" >Profil</li>
                 <li id="logout_bouton_index" onclick="Log_out();" >Déconnexion</li>
             </ul>
         </div>
 
         <ul id="tab_container" >
-            <li id="dashboard_tab_index" href="#" data-ajax="ajax_link" class="active" >Connexion</li>
+            <li id="dashboard_tab_index" href="#" class="active" >Connexion</li>
         </ul>
     </div>
 
